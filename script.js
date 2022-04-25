@@ -22,4 +22,40 @@ function askMounth() {
     } else {
         alert("Это Осень")
     }
-}
+};
+
+
+function guesFruit() {
+    console.log("game2");
+
+    function shuffle(array){
+        array = array.sort(() => Math.random() - 0.5);
+    }
+    
+    const fruits = ['Яблоко', 'Груша', 'Дыня', 'Виноград', 'Персик', 'Апельсин', 'Мандарин'];
+    shuffle(fruits);
+    console.log(fruits);
+    alert(`Постарайтесь запомнить порядок элементов: ${fruits.join(", ")}`);
+    
+    let answerOne = prompt("Чему равнялся первый элемент массива?");
+    let answerTwo;
+    if (answerOne !== null) {
+        answerTwo = prompt("Чему равнялся последний элемент массива?");
+    };
+
+    if (answerOne === null || answerTwo === null) {
+        alert("Не хочешь как хочешь...");
+    } else {
+        answerOne = answerOne.toLowerCase() == fruits[0].toLowerCase();
+        answerTwo = answerTwo.toLowerCase() == fruits[6].toLowerCase();
+        const answers = [answerOne, answerTwo];
+
+        if (answers.every(item => item === true)) {
+        alert("Поздравляю, пользователь, ты угадал оба элемента");
+    } else if (answers.every(item => item === false)) {
+        alert("Пользователь, ты не угадал ни одного элемента, сообщаю, что ты ответил неверно");
+    } else {
+        alert("Вы были близки к победе!");
+    }
+    }
+};
