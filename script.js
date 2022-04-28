@@ -25,7 +25,7 @@ function askMounth() {
 };
 
 
-function guesFruit() {
+function guessFruit() {
     console.log("game2");
 
     function shuffle(array){
@@ -58,4 +58,29 @@ function guesFruit() {
         alert("Вы были близки к победе!");
     }
     }
-};
+}
+
+function guessRiddle(riddle, key, attempts) {
+    alert(riddle);
+    let answer;
+    for (let i = attempts - 1; i >= 0; i--) {
+      answer = prompt("Enter your guess", "JavaScript");
+      if (answer === null) {
+        alert("Lets try next time");
+        return answer;
+      }
+      if (answer.toUpperCase() === key.toUpperCase()) {
+        alert("You are right!");
+        return true;
+      }
+      if (i === 0) {
+        alert("You have no tries left");
+        return false;
+      }
+      alert(`Try again. ${i} tries left`);
+    }
+}
+
+let yourRiddle = "What is the best programming language?";
+let keyForYourRiddle = "JavaScript";
+let attemptsAllowed = 3;

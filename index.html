@@ -34,7 +34,7 @@
                         </a>
                 </li>
                 <li class="game game__3">
-                        <a class="game__link" href="#">
+                        <a class="game__link" href="#" onclick="guessRiddle(yourRiddle, keyForYourRiddle, attemptsAllowed)">
                             <h2 class="game__name">Игра 3</h2>
                         </a>
                 </li>
@@ -54,7 +54,7 @@
             <div class="remember__info">
                 <h2 class="remember__heading">Запомни слова</h2>
                 <p class="remember__desc">При нажатии на кнопку играть, вы увидите несколько слов, которые вам необходимо запомнить</p>
-                <a href="#" class="remember__link play-btn" onclick="guesFruit()">Играть!</a>
+                <a href="#" class="remember__link play-btn" onclick="guessFruit()">Играть!</a>
             </div>
             <img class="remember__img" src="./img/game_2.svg" alt="Remember game image">
         </section>
@@ -64,7 +64,7 @@
                 <div class="puzzle__info">
                     <h2 class="puzzle__heading">Игра в загадки</h2>
                     <p class="puzzle__desc">Компьютер загадывает загадку, вам необходимо ее угадать, если вы дадите не правильный ответ, то компьютер даст вам подсказку. У вас будет три попытки и две подсказки</p>
-                    <a href="#" class="puzzle__link play-btn">Играть!</a>
+                    <a href="#" class="puzzle__link play-btn" onclick="guessRiddle(yourRiddle, keyForYourRiddle, attemptsAllowed)">Играть!</a>
                 </div>
             </section>
         </div>
