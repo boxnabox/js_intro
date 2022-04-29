@@ -2,7 +2,7 @@
 
 function askMounth() {
     let answer;
-    for (answer = prompt("Введите целое число от 1 до 12 включительно"); (answer < 1 || answer > 12) || (answer % Math.floor(answer) != 0);) {
+    for (answer = prompt("Введите целое число от 1 до 12 включительно"); (answer < 1 || answer > 12) || (answer % Math.floor(answer) !== 0);) {
         if (answer === null) {
             break;
         } else {
@@ -13,7 +13,7 @@ function askMounth() {
 
     if (answer === null) {
         alert("Вы не справились!");
-    } else if (answer == 12 || answer < 3) {
+    } else if (answer === 12 || answer < 3) {
         alert("Это Зима");
     } else if (answer < 6) {
         alert("Это Весна");
@@ -25,12 +25,12 @@ function askMounth() {
 };
 
 
+function shuffle(array){
+    array = array.sort(() => Math.random() - 0.5);
+}
+
 function guessFruit() {
     console.log("game2");
-
-    function shuffle(array){
-        array = array.sort(() => Math.random() - 0.5);
-    }
     
     const fruits = ['Яблоко', 'Груша', 'Дыня', 'Виноград', 'Персик', 'Апельсин', 'Мандарин'];
     shuffle(fruits);
@@ -46,8 +46,8 @@ function guessFruit() {
     if (answerOne === null || answerTwo === null) {
         alert("Не хочешь как хочешь...");
     } else {
-        answerOne = answerOne.toLowerCase() == fruits[0].toLowerCase();
-        answerTwo = answerTwo.toLowerCase() == fruits[6].toLowerCase();
+        answerOne = answerOne.toLowerCase() === fruits[0].toLowerCase();
+        answerTwo = answerTwo.toLowerCase() === fruits[6].toLowerCase();
         const answers = [answerOne, answerTwo];
 
         if (answers.every(item => item === true)) {
@@ -60,23 +60,28 @@ function guessFruit() {
     }
 }
 
+
 function guessRiddle(riddle, key, attempts) {
     alert(riddle);
     let answer;
     for (let i = attempts - 1; i >= 0; i--) {
       answer = prompt("Enter your guess", "JavaScript");
+      
       if (answer === null) {
         alert("Lets try next time");
         return answer;
       }
+
       if (answer.toUpperCase() === key.toUpperCase()) {
         alert("You are right!");
         return true;
       }
+
       if (i === 0) {
         alert("You have no tries left");
         return false;
       }
+
       alert(`Try again. ${i} tries left`);
     }
 }
