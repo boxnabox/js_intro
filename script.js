@@ -66,26 +66,37 @@ function guessRiddle(riddle, key, attempts) {
     let answer;
     for (let i = attempts - 1; i >= 0; i--) {
       answer = prompt("Enter your guess", "JavaScript");
-      
+
       if (answer === null) {
         alert("Lets try next time");
+
         return answer;
       }
 
       if (answer.toUpperCase() === key.toUpperCase()) {
         alert("You are right!");
+
         return true;
       }
 
       if (i === 0) {
         alert("You have no tries left");
+
         return false;
       }
+
+      if (attempts - i === 1) {
+          alert("Hint 1. This language starts with Java...");
+        }
+
+      if (attempts - i === 2 ) {
+          alert("Hint 2. This language ends with ...Script");
+        }
 
       alert(`Try again. ${i} tries left`);
     }
 }
 
-let yourRiddle = "What is the best programming language?";
+let yourRiddle = "What is the best programming language to be driven crazy?";
 let keyForYourRiddle = "JavaScript";
 let attemptsAllowed = 3;
